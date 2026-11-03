@@ -47,6 +47,8 @@ export const seedCustomers: Customer[] = [
   { id: "cust-06", name: "Ananya Iyer", email: "ananya.iyer@example.com", phone: "+91 91760 88991", address: "14 Anna Nagar, Chennai", notes: "Gift orders around Diwali.", createdAt: "2026-08-30T10:00:00.000Z" },
 ];
 
+const C = (i: number): Customer => seedCustomers[i]!;
+
 const o = (
   orderNumber: string,
   customer: Customer,
@@ -84,16 +86,16 @@ const o = (
 };
 
 export const seedOrders: Order[] = [
-  o("SC-1031", seedCustomers[0], [{ productId: "prod-02", name: "Classic Cappuccino", price: 240, qty: 2 }, { productId: "prod-09", name: "Butter Croissant", price: 195, qty: 1 }], "2026-10-06T09:14:00.000Z", "completed"),
-  o("SC-1032", seedCustomers[1], [{ productId: "prod-05", name: "18-Hour Cold Brew", price: 265, qty: 1 }, { productId: "prod-11", name: "Blueberry Muffin", price: 185, qty: 1 }], "2026-10-09T15:40:00.000Z", "completed"),
-  o("SC-1033", seedCustomers[2], [{ productId: "prod-02", name: "Classic Cappuccino", price: 240, qty: 4 }, { productId: "prod-10", name: "Chocolate Chip Cookies", price: 175, qty: 4 }], "2026-10-14T11:05:00.000Z", "completed", "WELCOME10", 131.6),
-  o("SC-1034", seedCustomers[3], [{ productId: "prod-01", name: "Espresso Doppio", price: 180, qty: 2 }], "2026-10-19T08:22:00.000Z", "cancelled"),
-  o("SC-1035", seedCustomers[0], [{ productId: "prod-12", name: "Signature Blend Beans · 250g", price: 750, qty: 1 }], "2026-10-23T18:30:00.000Z", "completed"),
-  o("SC-1036", seedCustomers[4], [{ productId: "prod-03", name: "Caramel Macchiato", price: 280, qty: 2 }, { productId: "prod-06", name: "Iced Caramel Latte", price: 285, qty: 1 }], "2026-10-27T13:48:00.000Z", "completed", "FIRSTCUP", 50),
-  o("SC-1037", seedCustomers[5], [{ productId: "prod-04", name: "Mocha Bliss", price: 295, qty: 2 }, { productId: "prod-09", name: "Butter Croissant", price: 195, qty: 2 }], "2026-10-30T10:12:00.000Z", "completed"),
-  o("SC-1038", seedCustomers[1], [{ productId: "prod-07", name: "French Press Ritual", price: 340, qty: 1 }, { productId: "prod-08", name: "Honey Cinnamon Latte", price: 275, qty: 1 }], "2026-11-01T16:02:00.000Z", "ready"),
-  o("SC-1039", seedCustomers[2], [{ productId: "prod-05", name: "18-Hour Cold Brew", price: 265, qty: 3 }], "2026-11-02T09:35:00.000Z", "preparing"),
-  o("SC-1040", seedCustomers[3], [{ productId: "prod-02", name: "Classic Cappuccino", price: 240, qty: 1 }, { productId: "prod-11", name: "Blueberry Muffin", price: 185, qty: 2 }], "2026-11-03T08:05:00.000Z", "pending"),
+  o("SC-1031", C(0), [{ productId: "prod-02", name: "Classic Cappuccino", price: 240, qty: 2 }, { productId: "prod-09", name: "Butter Croissant", price: 195, qty: 1 }], "2026-10-06T09:14:00.000Z", "completed"),
+  o("SC-1032", C(1), [{ productId: "prod-05", name: "18-Hour Cold Brew", price: 265, qty: 1 }, { productId: "prod-11", name: "Blueberry Muffin", price: 185, qty: 1 }], "2026-10-09T15:40:00.000Z", "completed"),
+  o("SC-1033", C(2), [{ productId: "prod-02", name: "Classic Cappuccino", price: 240, qty: 4 }, { productId: "prod-10", name: "Chocolate Chip Cookies", price: 175, qty: 4 }], "2026-10-14T11:05:00.000Z", "completed", "WELCOME10", 131.6),
+  o("SC-1034", C(3), [{ productId: "prod-01", name: "Espresso Doppio", price: 180, qty: 2 }], "2026-10-19T08:22:00.000Z", "cancelled"),
+  o("SC-1035", C(0), [{ productId: "prod-12", name: "Signature Blend Beans · 250g", price: 750, qty: 1 }], "2026-10-23T18:30:00.000Z", "completed"),
+  o("SC-1036", C(4), [{ productId: "prod-03", name: "Caramel Macchiato", price: 280, qty: 2 }, { productId: "prod-06", name: "Iced Caramel Latte", price: 285, qty: 1 }], "2026-10-27T13:48:00.000Z", "completed", "FIRSTCUP", 50),
+  o("SC-1037", C(5), [{ productId: "prod-04", name: "Mocha Bliss", price: 295, qty: 2 }, { productId: "prod-09", name: "Butter Croissant", price: 195, qty: 2 }], "2026-10-30T10:12:00.000Z", "completed"),
+  o("SC-1038", C(1), [{ productId: "prod-07", name: "French Press Ritual", price: 340, qty: 1 }, { productId: "prod-08", name: "Honey Cinnamon Latte", price: 275, qty: 1 }], "2026-11-01T16:02:00.000Z", "ready"),
+  o("SC-1039", C(2), [{ productId: "prod-05", name: "18-Hour Cold Brew", price: 265, qty: 3 }], "2026-11-02T09:35:00.000Z", "preparing"),
+  o("SC-1040", C(3), [{ productId: "prod-02", name: "Classic Cappuccino", price: 240, qty: 1 }, { productId: "prod-11", name: "Blueberry Muffin", price: 185, qty: 2 }], "2026-11-03T08:05:00.000Z", "pending"),
 ];
 
 export const seedLogs: InventoryLog[] = seedOrders
