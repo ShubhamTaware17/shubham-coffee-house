@@ -111,7 +111,10 @@ interface StoreContextValue {
 
 const StoreContext = createContext<StoreContextValue | null>(null);
 
-function useHydratedCollection<T>(key: string, seedValue: T[]) {
+function useHydratedCollection<T>(
+  key: string,
+  seedValue: T[],
+): [T[], (next: T[] | ((prev: T[]) => T[])) => void] {
   const [value, setValue] = useState<T[]>(seedValue);
   const [hydrated, setHydrated] = useState(false);
 
