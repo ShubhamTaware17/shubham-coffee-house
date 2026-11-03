@@ -36,7 +36,7 @@ import {
   removeKey,
   resetStorage,
   saveCollection,
-  saveSettings,
+  saveSettings as persistSettings,
   saveSingle,
   seedIfNeeded,
 } from "@/lib/storage";
@@ -121,9 +121,12 @@ function useHydratedCollection<T>(key: string, seedValue: T[]): [T[], (next: T[]
   }, []);
 
   const setAndSave = useCallback(
-    (next: T[]) => {
-      setValue(next);
-      if (hydrated) saveCollection(key, next);
+    (next: T[] | ((prev: T[]) => T[])) => {
+      setValue((prev) => {
+        const resolved = typeof next === "function" ? (next as (p: T[]) => T[])(prev) : next;
+        if (hydrated) saveCollection(key, resolved);
+        return resolved;
+      });
     },
     [key, hydrated],
   );
@@ -493,7 +496,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const saveSettings = useCallback(
     (next: Settings) => {
       setSettingsState(next);
-      saveSettings(KEYS.settings, next);
+      persistSettings(KEYS.settings, next);
     },
     [],
   );

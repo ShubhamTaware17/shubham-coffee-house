@@ -348,7 +348,7 @@ export function computeDashboardStats(data: DataSnapshot, now: Date = new Date()
       return active(o) && t >= start.getTime() && t < end.getTime();
     });
     revenueByDay.push({
-      day: dayNames[start.getDay()],
+      day: dayNames[start.getDay()] ?? "",
       revenue: round2(dayOrders.reduce((s, o) => s + o.total, 0)),
       orders: dayOrders.length,
     });
@@ -412,7 +412,7 @@ export function computeReportStats(data: DataSnapshot, now: Date = new Date()): 
       return c.getFullYear() === d.getFullYear() && c.getMonth() === d.getMonth();
     });
     revenueByMonth.push({
-      month: monthNames[d.getMonth()],
+      month: monthNames[d.getMonth()] ?? "",
       revenue: round2(orders.reduce((s, o) => s + o.total, 0)),
       orders: orders.length,
     });
