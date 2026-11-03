@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { BadgeCheck, Banknote, CreditCard, Smartphone, Tag } from "lucide-react";
 import { toast } from "sonner";

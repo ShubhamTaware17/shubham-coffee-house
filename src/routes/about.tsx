@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Coffee, HeartHandshake, Leaf, Recycle, Users } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site/Chrome";
