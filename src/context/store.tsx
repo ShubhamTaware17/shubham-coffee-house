@@ -50,6 +50,7 @@ import type {
   Employee,
   Enquiry,
   EnquiryStatus,
+  InventoryLog,
   Order,
   OrderStatus,
   Product,
@@ -141,7 +142,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useHydratedCollection<Product>(KEYS.products, seedProducts);
   const [customers, setCustomers] = useHydratedCollection<Customer>(KEYS.customers, seedCustomers);
   const [orders, setOrders] = useHydratedCollection<Order>(KEYS.orders, seedOrders);
-  const [logs, setLogs] = useHydratedCollection<DataSnapshot["logs"]>(KEYS.logs, seedLogs);
+  const [logs, setLogs] = useHydratedCollection<InventoryLog>(KEYS.logs, seedLogs);
   const [enquiries, setEnquiries] = useHydratedCollection<Enquiry>(KEYS.enquiries, seedEnquiries);
   const [employees, setEmployees] = useHydratedCollection<Employee>(KEYS.employees, seedEmployees);
   const [coupons, setCoupons] = useHydratedCollection<Coupon>(KEYS.coupons, seedCoupons);
